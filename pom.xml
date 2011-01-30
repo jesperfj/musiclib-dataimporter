@@ -1,81 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.force.cliforce.plugin</groupId>
-    <artifactId>cliplugin</artifactId>
-    <version>1.0</version>
-    <properties>
-        <force.repo.url>http://repo.t.salesforce.com/archiva/repository/releases</force.repo.url>
-        <force.repo.snapshot.url>http://repo.t.salesforce.com/archiva/repository/snapshots</force.repo.snapshot.url>
-    </properties>
-    <repositories>
-        <repository>
-            <id>force.repo</id>
-            <name>Force.com Repository</name>
-            <url>${force.repo.snapshot.url}</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>force.repo.snapshot</id>
-            <name>Force.com Snapshot Repository</name>
-            <url>${force.repo.snapshot.url}</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>scala-tools.releases</id>
-            <name>Scala-Tools Dependencies Repository for Releases</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-    </repositories>
-    <distributionManagement>
-        <repository>
-            <id>force.repo</id>
-            <name>Force.com Repository</name>
-            <url>${force.repo.url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>force.repo.snapshot</id>
-            <name>Force.com Snapshot Repository</name>
-            <url>${force.repo.snapshot.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
-    <scm>
-        <connection>scm:git:git://github.com/sclasen/cliplugin.git</connection>
-        <developerConnection>scm:git:git@github.com:sclasen/cliplugin.git</developerConnection>
-        <url>http://github.com/sclasen/cliplugin</url>
-    </scm>
-    <dependencies>
-        <dependency>
-            <groupId>com.force.cliforce</groupId>
-            <artifactId>cliforce</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+	<groupId>com.force.cliforce.plugin</groupId>
+	<artifactId>sampledata</artifactId>
+	<version>1.0</version>
+	<properties>
+		<force.repo.url>http://repo.t.salesforce.com/archiva/repository/releases</force.repo.url>
+		<force.repo.snapshot.url>http://repo.t.salesforce.com/archiva/repository/snapshots</force.repo.snapshot.url>
+	</properties>
+	<repositories>
+		<repository>
+			<id>force.repo</id>
+			<name>Force.com Repository</name>
+			<url>${force.repo.snapshot.url}</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>force.repo.snapshot</id>
+			<name>Force.com Snapshot Repository</name>
+			<url>${force.repo.snapshot.url}</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>scala-tools.releases</id>
+			<name>Scala-Tools Dependencies Repository for Releases</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
+		<repository>
+			<id>freebase-java</id>
+			<url>http://freebase-java.googlecode.com/svn/repository</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>force.repo</id>
+			<name>Force.com Repository</name>
+			<url>${force.repo.url}</url>
+		</repository>
+		<snapshotRepository>
+			<id>force.repo.snapshot</id>
+			<name>Force.com Snapshot Repository</name>
+			<url>${force.repo.snapshot.url}</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<scm>
+		<connection>scm:git:git://github.com/jesperfj/sampledatagetter.git</connection>
+		<developerConnection>scm:git:git@github.com:jesperfj/sampledatagetter.git</developerConnection>
+		<url>http://github.com/jesperfj/sampledatagetter</url>
+	</scm>
+	<dependencies>
+		<dependency>
+			<groupId>com.force.cliforce</groupId>
+			<artifactId>cliforce</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.freebase</groupId>
+			<artifactId>freebase-java</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
