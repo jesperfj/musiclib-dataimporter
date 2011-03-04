@@ -1,39 +1,13 @@
-Hello World plugin example for the cliforce shell
+# CLIforce plugin to import data into the Music Library Sample App
 
-        git clone git://github.com/sclasen/cliforce.git
-        cd cliforce
-        mvn install
-        cd ..
-        git clone git://github.com/sclasen/cliplugin.git
-        cd cliplugin
-        mvn install
+This code needs a bit more polishing. It lets you install a plugin into cliforce that can pull data from freebase and import into the [Music Library Sample App](https://github.com/jesperfj/vmforce-musiclib) so you have some data to play with.
 
-then run the shell and
+The following should work:
 
-        force> plugin HelloWorld cliplugin:cliplugin:1.0
-
-You have installed the plugin, you can now
-
-        force> hello
-
-and get a hello back
-
-You can uninstall the plugin like this
-
-        force> unplug HelloWorld
-
-Here is the output you should see
-
-        force> plugin HelloWorldPlugin cliplugin:cliplugin:1.0
-        Adding Plugin: HelloWorld, (HelloWorldPlugin)
-          -> adds command hello, (HelloWorldPlugin$HelloWorldCommand)
-        force> hello
-        hello
-        Hello World
-        force> unplug HelloWorld
-        unplug HelloWorld
-        attempting to remove plugin: HelloWorld
-        removed command: hello
-
-        Done
-        force>
+    $ git clone git://github.com/jesperfj/musiclib-dataimporter.git
+    [...]
+    $ cd musiclib-dataimporter
+    $ mvn install -DupdateReleaseInfo
+    $ cliforce plugin sampledata
+    $ cliforce sampledata:getmusic
+    $ cliforce sampledata:import
