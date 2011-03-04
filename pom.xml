@@ -14,7 +14,7 @@
 		<repository>
 			<id>force.repo</id>
 			<name>Force.com Repository</name>
-			<url>${force.repo.snapshot.url}</url>
+			<url>${force.repo.url}</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

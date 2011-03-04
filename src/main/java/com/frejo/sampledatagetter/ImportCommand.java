@@ -39,7 +39,8 @@ public class ImportCommand implements Command {
 		
 		RestConnection rc = ctx.getRestConnection();
 		PartnerConnection pc = ctx.getPartnerConnection();
-		
+
+		ctx.getCommandWriter().println("Importing data using bulk api on "+rc.getConfig().getRestEndpoint());
 		for(String fn : files) {
 			String objName = fn.substring(2,fn.length()-4);
 			ctx.getCommandWriter().println(objName);
@@ -77,8 +78,7 @@ public class ImportCommand implements Command {
 				}
 				in.close();
 				rc.closeJob(job.getId());
-				ctx.getCommandWriter().println("Job created with ID "+job.getId()+". curl to get it:\n"+
-					   "sh curl -s -H \"X-SFDC-Session: "+rc.getConfig().getSessionId().replace("!", "\\!")+"\" "+rc.getConfig().getRestEndpoint()+"/job/"+job.getId()+"\n");
+				ctx.getCommandWriter().println("Import of "+objName.replace("__c","")+" data started with Job ID "+job.getId()+"...");
 				while(true) {
 					try {
 						Thread.sleep(1000);
@@ -90,7 +90,7 @@ public class ImportCommand implements Command {
 						break;
 					}
 					if(job.getNumberBatchesInProgress()==0 && job.getNumberBatchesQueued()==0) {
-						ctx.getCommandWriter().println("Finished loading "+objName);
+						ctx.getCommandWriter().println("Finished importing "+objName.replace("__c","")+" data.");
 						break;
 					}
 				}		

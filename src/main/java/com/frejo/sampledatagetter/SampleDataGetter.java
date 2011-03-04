@@ -79,7 +79,7 @@ public class SampleDataGetter implements Plugin {
             		"id", null,
             		"name", null,
             		"type", "/music/album",
-            		"limit", 1000,
+            		"limit", 100,
             		"artist", a(o(
             				"id", null,
             				"name", null,
